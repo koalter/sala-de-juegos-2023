@@ -14,7 +14,6 @@ import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +22,8 @@ import { HeaderComponent } from './header/header.component';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    FontAwesomeModule
+    FontAwesomeModule,
+    HeaderComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
