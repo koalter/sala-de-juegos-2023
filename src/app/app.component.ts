@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sala-de-juegos-2023';
+  title = 'LNCK_';
+  rutas = [
+    { path: 'home', title: 'Home'},
+    { path: 'about', title: 'Quién Soy'},
+  ];
 }
