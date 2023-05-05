@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faSteam } from '@fortawesome/free-brands-svg-icons';
+import { faGamepad, faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 import { AppRoutingModule } from '../app-routing.module';
 import { Routes } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -15,5 +16,5 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export class HeaderComponent {
   @Input() rutas?: Routes;
   @Input() titulo?: string;
-  logo = faGithub;
+  logo = faSteam;
 }
