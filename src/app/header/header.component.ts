@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { faSteam } from '@fortawesome/free-brands-svg-icons';
 import { faGamepad, faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 import { AppRoutingModule } from '../app-routing.module';
 import { Routes } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { User } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-header',
@@ -16,5 +17,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export class HeaderComponent {
   @Input() rutas?: Routes;
   @Input() titulo?: string;
+  @Input() usuario?: User | null;
+  @Output() cerrarSesion: EventEmitter<void> = new EventEmitter();
   logo = faSteam;
+
+  constructor() {}
+  
+  cerrarSesion_click(): void {
+    this.cerrarSesion.emit();
+  }
 }

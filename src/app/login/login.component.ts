@@ -1,23 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../shared/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  nombre: string = '';
+  correo: string = '';
   clave: string = '';
+  datosDePrueba: any[] = [
+    { correo: 'test1@example.com', clave: 'password' },
+    { correo: 'test2@example.com', clave: 'password' }
+  ]
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(private usuarioService: UsuarioService,
+              private router: Router) { }
 
   enviar(): void {
-    const usuario = { nombre: this.nombre, clave: this.clave };
-    console.log(usuario);
+    this.usuarioService.login(this.correo, this.clave)
+      .then(res => {
+        if (res) {
+          this.router.navigateByUrl('/home');
+        }
+      });
   }
 
+  setUsuario(jugador: number) {
+    this.correo = this.datosDePrueba[jugador].correo;
+    this.clave = this.datosDePrueba[jugador].clave;
+  }
 }

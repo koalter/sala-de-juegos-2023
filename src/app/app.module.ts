@@ -10,6 +10,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header/header.component';
+import { SharedModule } from './shared/shared.module';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { HeaderComponent } from './header/header.component';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     FontAwesomeModule,
-    HeaderComponent
+    HeaderComponent,
+    SpinnerComponent,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
