@@ -1,6 +1,6 @@
 <div class="p-5">
     <div class="container-fluid card col-sm-8 col-md-6 col-lg-4 col-xxl-3 border-primary p-4 rounded-3 bg-primary">
-        <h2 class="text-center pb-3">INICIAR SESIÓN_</h2>
+        <h2 class="text-center pb-3">CREAR USUARIO_</h2>
         <form [formGroup]="formulario" (ngSubmit)="enviar()">
             <div class="form-floating input my-3">
                 <input class="form-control" type="text" id="correo" formControlName="correo" name="correo" placeholder="Dirección de correo electrónico">
@@ -10,22 +10,11 @@
                 <input class="form-control" type="password" id="clave" formControlName="clave" name="clave" placeholder="Contraseña">
                 <label class="text-muted" for="clave">Contraseña</label>
             </div>
-            <button type="submit" class="btn btn-info w-100 p-3 mb-3" [disabled]="!formulario.valid">Iniciar sesión</button>
+            <div class="form-floating input my-3">
+                <input class="form-control" type="password" id="clave_repetir" formControlName="clave_repetir" name="clave_repetir" placeholder="Repetir contraseña">
+                <label class="text-muted" for="clave_repetir">Repetir contraseña</label>
+            </div>
+            <button type="submit" class="btn btn-secondary w-100 p-3 mb-3" [disabled]="!formulario.valid">Registrarse</button>
         </form>
-        <p class="text-center p-2 btn-outline-warning">Escoge tu jugador</p>
-        <div class="row">
-            <img 
-                src="../../assets/player_1.jpg" 
-                alt="player 1"
-                class="col-6"
-                (click)="setUsuario(0)"
-                role="button">
-            <img 
-                src="../../assets/player_2.jpg" 
-                alt="player 2"
-                class="col-6"
-                (click)="setUsuario(1)"
-                role="button">
-        </div>
     </div>
 </div>

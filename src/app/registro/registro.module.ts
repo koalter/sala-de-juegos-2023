@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LoginRoutingModule } from './login-routing.module';
-import { LoginComponent } from './login.component';
+import { RegistroRoutingModule } from './registro-routing.module';
+import { RegistroComponent } from './registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    RegistroComponent
   ],
   imports: [
     CommonModule,
-    LoginRoutingModule,
+    RegistroRoutingModule,
     ReactiveFormsModule
   ]
 })
-export class LoginModule { }
+export class RegistroModule { }
