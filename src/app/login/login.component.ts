@@ -17,14 +17,14 @@ export class LoginComponent {
   ];
 
   get correo() {
-    return this.formulario.get('correo')?.value as string;
+    return this.formulario.get('correo');
   }
   set correo(value) {
     this.formulario.get('correo')?.setValue(value);
   }
 
   get clave() {
-    return this.formulario.get('clave')?.value as string;
+    return this.formulario.get('clave');
   }
   set clave(value) {
     this.formulario.get('clave')?.setValue(value);
@@ -39,7 +39,7 @@ export class LoginComponent {
   }
 
   enviar(): void {
-    this.usuarioService.login(this.correo, this.clave)
+    this.usuarioService.login(this.correo?.value, this.clave?.value)
       .then(res => {
         if (res) {
           this.router.navigateByUrl('/home');

@@ -5,14 +5,17 @@
             <div class="form-floating input my-3">
                 <input class="form-control" type="text" id="correo" formControlName="correo" name="correo" placeholder="Dirección de correo electrónico">
                 <label class="text-muted" for="correo">Dirección de correo electrónico</label>
+                <small class="text-warning" *ngIf="correo?.touched && correo?.errors">Ingrese un correo válido.</small>
             </div>
             <div class="form-floating input my-3">
                 <input class="form-control" type="password" id="clave" formControlName="clave" name="clave" placeholder="Contraseña">
                 <label class="text-muted" for="clave">Contraseña</label>
+                <small class="text-warning" *ngIf="clave?.touched && clave?.errors">Ingrese una clave. (min. 6 caracteres)</small>
             </div>
             <div class="form-floating input my-3">
                 <input class="form-control" type="password" id="clave_repetir" formControlName="clave_repetir" name="clave_repetir" placeholder="Repetir contraseña">
                 <label class="text-muted" for="clave_repetir">Repetir contraseña</label>
+                <small class="text-warning" *ngIf="clave_repetir?.touched && clave_repetir?.errors">La clave debe coincidir.</small>
             </div>
             <button type="submit" class="btn btn-secondary w-100 p-3 mb-3" [disabled]="!formulario.valid">Registrarse</button>
         </form>
