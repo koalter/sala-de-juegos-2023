@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../shared/usuario.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastService } from '../toasts/shared/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,8 @@ export class LoginComponent {
 
   formulario: FormGroup;
   datosDePrueba: any[] = [
-    { correo: 'test1@example.com', clave: 'password' },
-    { correo: 'test2@example.com', clave: 'password' }
+    { correo: 'jugador1@lnck.com', clave: 'jugador1@lnck.com' },
+    { correo: 'jugador2@lnck.com', clave: 'jugador2@lnck.com' }
   ];
 
   get correo() {
@@ -30,8 +31,11 @@ export class LoginComponent {
     this.formulario.get('clave')?.setValue(value);
   }
 
-  constructor(private usuarioService: UsuarioService,
-              private router: Router) {
+  constructor(
+    private usuarioService: UsuarioService,
+    private toastService: ToastService,
+    private router: Router
+  ) {
     this.formulario = new FormGroup({
       correo: new FormControl('', [Validators.email, Validators.required]),
       clave: new FormControl('', [Validators.required])
@@ -40,11 +44,8 @@ export class LoginComponent {
 
   enviar(): void {
     this.usuarioService.login(this.correo?.value, this.clave?.value)
-      .then(res => {
-        if (res) {
-          this.router.navigateByUrl('/home');
-        }
-      });
+      .then(() => this.router.navigateByUrl('/home'))
+      .catch(err => this.toastService.mostrar(err.message));
   }
 
   setUsuario(jugador: number) {
