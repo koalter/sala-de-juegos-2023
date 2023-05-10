@@ -1,7 +1,12 @@
-<app-header [titulo]="title" [rutas]="rutas"></app-header>
-
-<router-outlet></router-outlet>
+<main *ngIf="usuario !== undefined">
+    <app-header [titulo]="title" [rutas]="rutas" [usuario]="usuario" (cerrarSesion)="cerrarSesion()"></app-header>
+    
+    <router-outlet></router-outlet>
+</main>
 
 <footer class="container pt-3 mb-3 border-top d-flex justify-content-center">
     <span>Lorenzo Cea &copy; 2023</span>
 </footer>
+
+<app-spinner *ngIf="spinner"></app-spinner>
+<app-toasts></app-toasts>

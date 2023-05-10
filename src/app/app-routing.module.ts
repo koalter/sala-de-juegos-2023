@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule) },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+  { path: 'registro', loadChildren: () => import('./registro/registro.module').then(m => m.RegistroModule) },
   { path: '404', loadChildren: () => import('./error/error.module').then(m => m.ErrorModule) },
   { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];

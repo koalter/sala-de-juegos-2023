@@ -1,4 +1,4 @@
-<header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 navbar navbar-expand-sm navbar-dark bg-primary">
+<header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="col-md-3 mb-2 mb-md-0">
       <a routerLink="" class="navbar-brand link-body-emphasis text-decoration-none">
         <fa-icon [icon]="logo" size="2xl" class="text-white"></fa-icon>
@@ -15,8 +15,13 @@
       </li>
     </nav>
   
-    <div class="col-md-3 text-end">
-      <button routerLink="login" type="button" class="btn btn-success me-2">Login</button>
-      <button routerLink="registro" type="button" class="btn btn-outline-light">Registrarse</button>
+    <div class="col-md-3 text-end" *ngIf="usuario">
+      <span class="btn btn-outline-info me-2">{{ usuario.displayName || usuario.email }}</span>
+      <button (click)="cerrarSesion_click()" type="button" class="btn btn-danger me-2">Cerrar sesión</button>
+    </div>
+
+    <div class="col-md-3 text-end" *ngIf="!usuario">
+      <button routerLink="login" type="button" class="btn btn-info me-2">Login</button>
+      <button routerLink="registro" type="button" class="btn btn-outline-light me-2">Registrarse</button>
     </div>
 </header>
