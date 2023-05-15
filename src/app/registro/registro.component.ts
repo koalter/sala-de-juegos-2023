@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UsuarioService } from '../shared/usuario.service';
+import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
-import { confirmarClaveValidator } from '../shared/confirmar-clave.validator';
+import { confirmarClaveValidator } from '../shared/validators/confirmar-clave.validator';
 import { ToastService } from '../toasts/shared/toast.service';
 
 @Component({
@@ -35,7 +35,7 @@ export class RegistroComponent {
   }
 
   constructor(
-    private usuarioService: UsuarioService,
+    private authService: AuthService,
     private toastService: ToastService,
     private router: Router
   ) {
@@ -47,7 +47,7 @@ export class RegistroComponent {
   }
 
   enviar(): void {
-    this.usuarioService.registro(this.correo?.value, this.clave?.value)
+    this.authService.registro(this.correo?.value, this.clave?.value)
       .then(() => this.router.navigateByUrl('home'))
       .catch(err => this.toastService.mostrar(err.message));
   }

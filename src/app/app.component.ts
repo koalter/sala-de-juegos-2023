@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { UsuarioService } from './shared/usuario.service';
+import { AuthService } from './shared/services/auth.service';
 import { User } from '@angular/fire/auth';
 import { Subscription } from 'rxjs';
 import { SpinnerService } from './spinner/shared/spinner.service';
@@ -19,11 +19,11 @@ export class AppComponent implements OnInit, OnDestroy {
   spinner: boolean = false;
   spinnerSubscription!: Subscription;
   
-  constructor(private usuarioService: UsuarioService,
+  constructor(private authService: AuthService,
               private spinnerService: SpinnerService) { }
   
   ngOnInit(): void {
-    this.usuarioService.getUsuario(usuario => {
+    this.authService.getUsuario(usuario => {
       this.usuario = usuario;
     });
     this.spinnerSubscription = this.spinnerService.loading.subscribe(state => {
@@ -36,6 +36,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   cerrarSesion() {
-    this.usuarioService.logout();
+    this.authService.logout();
   }
 }

@@ -13,7 +13,7 @@ export function confirmarClaveValidator(): ValidatorFn {
     } else {
         repiteClave?.setErrors(null);
         // Si los campos de contraseña coinciden, ...
-        return null
+        return null;
     }
   }
 }
