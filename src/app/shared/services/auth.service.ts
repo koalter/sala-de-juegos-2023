@@ -35,12 +35,14 @@ export class AuthService {
     }
   }
 
-  async logout(): Promise<void> {
+  async logout(): Promise<boolean> {
     try {
       this.spinnerService.loading.next(true);
       await signOut(this.auth);
+      return true;
     } catch (err: any) {
       await addDoc(collection(this.firestore, 'logErrores'), { error: err.toString(), fecha: Timestamp.now() });
+      return false;
     } finally {
       this.spinnerService.loading.next(false);
     }

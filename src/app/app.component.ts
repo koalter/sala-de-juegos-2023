@@ -3,6 +3,8 @@ import { AuthService } from './shared/services/auth.service';
 import { User } from '@angular/fire/auth';
 import { Subscription } from 'rxjs';
 import { SpinnerService } from './spinner/shared/spinner.service';
+import { Router } from '@angular/router';
+import { ToastService } from './toasts/shared/toast.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,9 @@ export class AppComponent implements OnInit, OnDestroy {
   spinnerSubscription!: Subscription;
   
   constructor(private authService: AuthService,
-              private spinnerService: SpinnerService) { }
+              private spinnerService: SpinnerService,
+              private toastService: ToastService,
+              private router: Router) { }
   
   ngOnInit(): void {
     this.authService.getUsuario(usuario => {
@@ -36,6 +40,12 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   cerrarSesion() {
-    this.authService.logout();
+    this.authService.logout()
+      .then(loggedOut => {
+        if (loggedOut) {
+          this.router.navigateByUrl('login');
+        }
+      })
+      .catch(() => this.toastService.mostrar('¡Hubo un error durante el cierre de sesión!'));
   }
 }
