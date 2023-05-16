@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header/header.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ToastsComponent } from './toasts/toasts.component';
+import { ChatModule } from './chat/chat.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ToastsComponent } from './toasts/toasts.component';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     FontAwesomeModule,
-    HeaderComponent
+    HeaderComponent,
+    ChatModule
   ],
   providers: [],
   bootstrap: [AppComponent]

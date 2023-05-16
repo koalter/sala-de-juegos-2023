@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from './shared/services/auth.service';
-import { User } from '@angular/fire/auth';
+import { Unsubscribe, User } from '@angular/fire/auth';
 import { Subscription } from 'rxjs';
 import { SpinnerService } from './spinner/shared/spinner.service';
 import { Router } from '@angular/router';
@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   usuario?: User | null = undefined;
   spinner: boolean = false;
   spinnerSubscription!: Subscription;
+  getUsuario$!: Unsubscribe;
   
   constructor(private authService: AuthService,
               private spinnerService: SpinnerService,
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
               private router: Router) { }
   
   ngOnInit(): void {
-    this.authService.getUsuario(usuario => {
+    this.getUsuario$ = this.authService.getUsuario(usuario => {
       this.usuario = usuario;
     });
     this.spinnerSubscription = this.spinnerService.loading.subscribe(state => {
@@ -37,6 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
       this.spinnerSubscription.unsubscribe();
+      this.getUsuario$();
   }
 
   cerrarSesion() {
