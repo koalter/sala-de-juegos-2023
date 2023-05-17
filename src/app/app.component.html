@@ -1,6 +1,5 @@
 <main *ngIf="usuario !== undefined">
     <app-header [titulo]="title" [rutas]="rutas" [usuario]="usuario" (cerrarSesion)="cerrarSesion()"></app-header>
-    
     <router-outlet></router-outlet>
 </main>
 
@@ -10,3 +9,4 @@
 
 <app-spinner *ngIf="spinner"></app-spinner>
 <app-toasts></app-toasts>
+<app-chat *ngIf="usuario"></app-chat>

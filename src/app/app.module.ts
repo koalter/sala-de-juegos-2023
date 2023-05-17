@@ -10,9 +10,10 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header/header.component';
-import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ToastsComponent } from './toasts/toasts.component';
+import { ChatModule } from './chat/chat.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ToastsComponent } from './toasts/toasts.component';
     provideFirestore(() => getFirestore()),
     FontAwesomeModule,
     HeaderComponent,
-    SharedModule
+    ChatModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

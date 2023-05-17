@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { faSteam } from '@fortawesome/free-brands-svg-icons';
-import { faGamepad, faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 import { AppRoutingModule } from '../app-routing.module';
 import { Routes } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';

@@ -1,0 +1,8 @@
+<div class="card border-secondary m-2 p-2">
+    <img [src]="juego.imagen" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">{{ juego.titulo }}</h5>
+        <p class="card-text">{{ juego.descripcion }}</p>
+        <button [routerLink]="['', 'juegos', juego.ruta]" class="btn btn-secondary">Jugar</button>
+    </div>
+</div>

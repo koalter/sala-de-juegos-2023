@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../shared/usuario.service';
+import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../toasts/shared/toast.service';
@@ -32,7 +32,7 @@ export class LoginComponent {
   }
 
   constructor(
-    private usuarioService: UsuarioService,
+    private authService: AuthService,
     private toastService: ToastService,
     private router: Router
   ) {
@@ -43,7 +43,7 @@ export class LoginComponent {
   }
 
   enviar(): void {
-    this.usuarioService.login(this.correo?.value, this.clave?.value)
+    this.authService.login(this.correo?.value, this.clave?.value)
       .then(() => this.router.navigateByUrl('/home'))
       .catch(err => this.toastService.mostrar(err.message));
   }
