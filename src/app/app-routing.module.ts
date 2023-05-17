@@ -34,6 +34,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./error/error.module').then((m) => m.ErrorModule),
   },
+  { path: 'juegos', loadChildren: () => import('./juegos/juegos.module').then(m => m.JuegosModule) },
   { path: '**', redirectTo: '404', pathMatch: 'full' },
 ];
 
