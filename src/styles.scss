@@ -31,3 +31,7 @@ body {
         background-color: $primary;
     }
 }
+
+.backdrop {
+    backdrop-filter: brightness(0.4);
+}

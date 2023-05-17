@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ToastsComponent } from './toasts/toasts.component';
 import { ChatModule } from './chat/chat.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ChatModule } from './chat/chat.module';
     provideFirestore(() => getFirestore()),
     FontAwesomeModule,
     HeaderComponent,
-    ChatModule
+    ChatModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
