@@ -8,6 +8,8 @@ import { MayorOMenorComponent } from './mayor-o-menor/mayor-o-menor.component';
 import { PantallaVictoriaComponent } from './pantalla-victoria/pantalla-victoria.component';
 import { PantallaDerrotaComponent } from './pantalla-derrota/pantalla-derrota.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PreguntadosComponent } from './preguntados/preguntados.component';
+import { PreguntadosCardComponent } from './preguntados/preguntados-card/preguntados-card.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AhorcadoComponent,
     MayorOMenorComponent,
     PantallaVictoriaComponent,
-    PantallaDerrotaComponent
+    PantallaDerrotaComponent,
+    PreguntadosComponent,
+    PreguntadosCardComponent
   ],
   imports: [
     CommonModule,

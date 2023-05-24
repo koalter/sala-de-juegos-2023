@@ -1,0 +1,12 @@
+<div class="card border-light m-auto col-lg-5 text-center p-3">
+    <h3 class="card-header text-capitalize py-2">{{ pregunta.categoria }}</h3>
+    <img [src]="imagenURL" class="card-img-top">
+    <div class="card-body">
+        <p class="card-text">{{ pregunta.pregunta }}</p>
+        <button 
+        *ngFor="let respuesta of pregunta.respuestas; index as i" 
+        (click)="enviarRespuesta(i)" 
+        class="col-12 my-1 btn btn-info"
+        >{{ respuesta.texto }}</button>
+    </div>
+</div>
