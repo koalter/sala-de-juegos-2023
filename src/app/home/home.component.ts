@@ -19,6 +19,12 @@ export class HomeComponent {
       descripcion: '¿Será más grande? ¿Será más chico? Poné a prueba tu suerte.',
       imagen: '../../../assets/mayor_o_menor.png',
       ruta: 'mayor-o-menor'
+    },
+    {
+      titulo: 'Preguntados',
+      descripcion: 'Respondé preguntas de distintas categorías y comprobá qué tanto sabes de lo que sea.',
+      imagen: '../../../assets/preguntados.png',
+      ruta: 'consultados'
     }
   ]
 }

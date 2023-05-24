@@ -8,4 +8,6 @@ export const environment = {
     authDomain: 'sala-de-juegos-31e6d.firebaseapp.com',
     messagingSenderId: '10086412169',
     measurementId: 'G-FP40074DYT',
-  },};
+  },
+  pexelsApiKey: '563492ad6f91700001000001f8d74e5d0fe04f7cb8066842523b385f'
+};
