@@ -25,6 +25,12 @@ export class HomeComponent {
       descripcion: 'Respondé preguntas de distintas categorías y comprobá qué tanto sabes de lo que sea.',
       imagen: '../../../assets/preguntados.png',
       ruta: 'consultados'
+    },
+    {
+      titulo: 'Tetris',
+      descripcion: 'Pulí tus habilidades en el emblemático Tetris clásico.',
+      imagen: '../../../assets/tetris.png',
+      ruta: 'tetris'
     }
   ]
 }
