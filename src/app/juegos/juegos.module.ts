@@ -10,6 +10,7 @@ import { PantallaDerrotaComponent } from './pantalla-derrota/pantalla-derrota.co
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PreguntadosComponent } from './preguntados/preguntados.component';
 import { PreguntadosCardComponent } from './preguntados/preguntados-card/preguntados-card.component';
+import { TetrisComponent } from './tetris/tetris.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PreguntadosCardComponent } from './preguntados/preguntados-card/pregunt
     PantallaVictoriaComponent,
     PantallaDerrotaComponent,
     PreguntadosComponent,
-    PreguntadosCardComponent
+    PreguntadosCardComponent,
+    TetrisComponent
   ],
   imports: [
     CommonModule,
